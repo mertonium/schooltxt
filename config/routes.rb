@@ -1,7 +1,7 @@
 Schooltxt::Application.routes.draw do
   resources :users
-
-  resources :users, :only => [:show, :new, :create]
+  
+  root :to => "users#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
