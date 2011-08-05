@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805031353) do
+ActiveRecord::Schema.define(:version => 20110805035541) do
+
+  create_table "notifications", :force => true do |t|
+    t.string   "message"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -1,4 +1,6 @@
 Schooltxt::Application.routes.draw do
+  resources :notifications
+
   resources :users
   
   root :to => "users#index"

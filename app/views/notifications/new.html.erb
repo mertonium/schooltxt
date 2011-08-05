@@ -1,0 +1,11 @@
+<h1>New notification</h1>
+
+<%= render 'form' %>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.name %> - <%= user.phone %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back', notifications_path %>
