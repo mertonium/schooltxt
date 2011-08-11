@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<h1>All school districts</h1>
+
+<ul>
+  <% @districts.each do |district| %>
+    <li><%= district.name %> (<%= district.phone %>)</li>
+  <% end %>
+</ul>
+
+<%= render 'form' %>

@@ -1,7 +1,7 @@
 Schooltxt::Application.routes.draw do
   resources :notifications
-
   resources :users
+  resources :districts
   
   root :to => "users#index"
   # The priority is based upon order of creation:
