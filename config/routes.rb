@@ -4,6 +4,7 @@ Schooltxt::Application.routes.draw do
   resources :districts
   
   root :to => "users#index"
+  match '/signup', :to => 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
