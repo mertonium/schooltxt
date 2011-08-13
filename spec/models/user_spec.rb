@@ -93,5 +93,33 @@ describe User do
     it "should set the encrypted password" do
       @user.encrypted_password.should_not be_blank
     end
+    
+    describe "has_password? method" do
+      it "should be true if the passwords match" do
+        @user.has_password?(@attr[:password]).should be_true
+      end    
+
+      it "should be false if the passwords don't match" do
+        @user.has_password?("invalid").should be_false
+      end 
+    end
+    
+    describe "authenticate method" do
+      it "should return nil on phone/password mismatch" do
+        wrong_password_user = User.authenticate(@attr[:phone], "wrongpass")
+        wrong_password_user.should be_nil
+      end
+
+      it "should return nil for a phone number with no user" do
+        nonexistent_user = User.authenticate("1234567890", @attr[:password])
+        nonexistent_user.should be_nil
+      end
+
+      it "should return the user on phone/password match" do
+        matching_user = User.authenticate(@attr[:phone], @attr[:password])
+        matching_user.should == @user
+      end
+    end
+    
   end
 end
