@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @districts = District.all
+    @title = 'Sign up'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        flash[:success] = "Welcome to SchoolTXT!"
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
